@@ -218,11 +218,14 @@ export default function Pricing() {
                 <span className="font-bold text-primary-700">
                   Request a Free Quote: &nbsp;
                 </span>
-                <Link href="/upload-form">
-                  <a href="" className="font-medium text-secondary-600">
-                    Upload your clients' medical records&nbsp;
-                  </a>
-                </Link>
+                <a
+                  href={process.env.NEXT_PUBLIC_ADMIN_PANEL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-secondary-600"
+                >
+                  Upload your clients' medical records&nbsp;
+                </a>
                 and get a free cost estimate and delivery date. You don’t need
                 to worry about the quote because we will start our work once we
                 get a approval from your end.

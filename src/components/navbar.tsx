@@ -393,14 +393,17 @@ const Navbar = () => {
                   </>
                 )}
               </Popover>
-              <Link href="/upload-form">
-                <a className="btn btn-2">
-                  <span className="flex items-center">
-                    File Upload
-                    <UploadIcon className="w-4 h-4 ml-2 text-white" />
-                  </span>
-                </a>
-              </Link>
+              <a
+                href={process.env.NEXT_PUBLIC_ADMIN_PANEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-2"
+              >
+                <span className="flex items-center">
+                  File Upload
+                  <UploadIcon className="w-4 h-4 ml-2 text-white" />
+                </span>
+              </a>
             </Popover.Group>
           </div>
           <Transition
@@ -605,11 +608,14 @@ const Navbar = () => {
                 </div>
                 <div className="px-5 py-6">
                   <div className="">
-                    <Link href="/upload-form">
-                      <a className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-primary-400 to-indigo-600 bg-origin-border hover:from-primary-500 hover:to-indigo-700">
-                        Upload Files
-                      </a>
-                    </Link>
+                    <a
+                      href={process.env.NEXT_PUBLIC_ADMIN_PANEL_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-primary-400 to-indigo-600 bg-origin-border hover:from-primary-500 hover:to-indigo-700"
+                    >
+                      Upload Files
+                    </a>
                   </div>
                 </div>
               </div>

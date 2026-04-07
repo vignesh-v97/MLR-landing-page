@@ -36,11 +36,13 @@ const LinkedServicesList = ({ caseType }: CaseTypeProps) => {
       <p className="mt-8 text-xl font-medium text-primary">
         Just submit your {caseType} case and get a free cost estimate with
         delivery date -{' '}
-        <Link href="/upload-form">
-          <a>
-            <span className="text-secondary">Get Started</span>
-          </a>
-        </Link>
+        <a
+          href={process.env.NEXT_PUBLIC_ADMIN_PANEL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="text-secondary">Get Started</span>
+        </a>
       </p>
     </div>
   );

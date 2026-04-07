@@ -1,4 +1,3 @@
-import router from 'next/router';
 import React from 'react';
 
 import Button from '../../ui/button';
@@ -26,12 +25,13 @@ const ExpertiseBanner = () => {
               Outsource & Relax!
             </h1>
             <div className="mt-5 flex justify-center">
-              <Button
-                className="bg-secondary-400"
-                onClick={() => router.push('/upload-form')}
+              <a
+                href={process.env.NEXT_PUBLIC_ADMIN_PANEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Upload Now
-              </Button>
+                <Button className="bg-secondary-400">Upload Now</Button>
+              </a>
             </div>
           </div>
         </div>
