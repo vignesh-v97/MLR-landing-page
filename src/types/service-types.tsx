@@ -1,0 +1,17 @@
+export type ServiceTypes =
+  | 'Medical Chronology'
+  | 'Demand Letter'
+  | 'Narrative Summary'
+  | 'Expert Medical Opinion'
+  | 'Deposition Summary'
+  | 'Life Care Plan'
+  | 'Independent Medical Examination'
+  | 'Billing Summary'
+  | 'Providers List'
+  | 'PDF Sorting & Merging'
+  | 'Medical Transcription'
+  | 'Med-A-Word/Med-Interpret'
+  | 'Bookmarks'
+  | 'Hot Links/Hyperlinks'
+  | 'Missing Records Identification'
+  | 'Special Reports';

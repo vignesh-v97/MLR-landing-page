@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://medicolegalrequestllc.com/
+
+# Sitemaps
+Sitemap: https://medicolegalrequestllc.com/sitemap.xml
