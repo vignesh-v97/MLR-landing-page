@@ -20,6 +20,15 @@ const settings = {
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
   // reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/upload-form/:path*',
+        destination: 'https://portal.medicolegalrequestllc.com',
+        permanent: true,
+      },
+    ];
+  },
   // async redirects() {
   //   return [
   //     {

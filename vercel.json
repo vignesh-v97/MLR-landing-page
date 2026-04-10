@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/upload-form/:path*",
+      "destination": "https://portal.medicolegalrequestllc.com",
+      "permanent": true
+    }
+  ]
+}
