@@ -1,5 +1,10 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  LoadCanvasTemplate,
+  loadCaptchaEnginge,
+  validateCaptcha,
+} from 'react-simple-captcha';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
@@ -59,7 +64,9 @@ const formSchema = yup.object().shape({
 });
 
 const SamplesForm = () => {
+  const captchaRef = useRef<HTMLInputElement>(null);
   const [formStatus, setFormStatus] = useState<'IDLE' | 'LOADING'>('IDLE');
+  const [hasWindow, setHasWindow] = useState(false);
 
   const formSubmit = async (formData: SampleFormValues) => {
     setFormStatus('LOADING');
@@ -76,9 +83,26 @@ const SamplesForm = () => {
   };
 
   const onSubmit = async (values: SampleFormValues, e: any) => {
-    await formSubmit(values);
-    e.target.reset();
+    const captchaValue = captchaRef?.current.value;
+
+    if (validateCaptcha(captchaValue) === true) {
+      await formSubmit(values);
+      e.target.reset();
+    } else {
+      toast.warning('Captcha does not match, Please try again', {
+        position: 'bottom-center',
+      });
+    }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      loadCaptchaEnginge(6);
+    }, 1000);
+    if (typeof window !== undefined) {
+      setHasWindow(true);
+    }
+  }, []);
   // formSubmit();
   return (
     <div>
@@ -291,6 +315,22 @@ const SamplesForm = () => {
                         label="Diagnostic Studies Chart"
                         {...register('specialReports.diagnosticStudiesChart')}
                         className="w-full my-1 sm:w-6/12 lg:w-4/12"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Captcha */}
+                  <div className="flex justify-center">
+                    <div className="contact-captcha flex">
+                      <div className="">
+                        {hasWindow && <LoadCanvasTemplate />}
+                      </div>
+                      <input
+                        type="text"
+                        id="user_captcha_input"
+                        ref={captchaRef}
+                        className=" ml-4 block border-gray-300  px-4 h-8  shadow-sm focus:border-primary focus:ring-primary w-40 "
+                        placeholder="Enter the Captcha"
                       />
                     </div>
                   </div>
